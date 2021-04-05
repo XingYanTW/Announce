@@ -1,0 +1,7 @@
+name: Announce
+version: ${project.version}
+main: me.xingyan.announce.Main
+api-version: 1.13
+commands:
+  announce:
+    permission: announce.use
