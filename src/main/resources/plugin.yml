@@ -2,6 +2,8 @@ name: Announce
 version: ${project.version}
 main: me.xingyan.announce.Main
 api-version: 1.13
+depend: [PlaceholderAPI]
+softdepend: [DiscordSRV]
 commands:
   announce:
     permission: announce.use

@@ -1,15 +1,9 @@
-########################
-#                      #
-#       Announce       #
-#                      #
-########################
-
-
-#Made by XingYan
-
 announce: "NONE"
 discord:
   enable: true
-  channel: "803202946267086911"
+  channel: "PUT YOUR DISCORD CHANNEL ID HERE"
+  embed: true
 message:
   prefix: "&c[公告]"
+  title: "**公告**"
+  sendby: "發送者:"
