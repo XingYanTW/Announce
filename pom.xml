@@ -6,7 +6,7 @@
 
     <groupId>me.xingyan</groupId>
     <artifactId>Announce</artifactId>
-    <version>1.1</version>
+    <version>1.2</version>
     <packaging>jar</packaging>
 
     <name>Announce</name>

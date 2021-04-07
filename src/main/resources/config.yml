@@ -1,9 +1,11 @@
-announce: "NONE"
+announce: 'NONE'
 discord:
   enable: true
-  channel: "PUT YOUR DISCORD CHANNEL ID HERE"
-  embed: true
+  channel: 'PUT YOUR DISCORD CHANNEL ID HERE'
+  embed:
+    enable: true
+    color: '#FF0000'
 message:
-  prefix: "&c[公告]"
-  title: "**公告**"
-  sendby: "發送者:"
+  prefix: '&c[公告]'
+  title: '**公告**'
+  sendby: '發送者:'

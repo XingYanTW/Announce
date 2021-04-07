@@ -13,6 +13,7 @@ import org.jetbrains.annotations.NotNull;
 import java.awt.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Objects;
 
 import static me.xingyan.announce.Main.config;
 import static me.xingyan.announce.Main.plugin;
@@ -36,9 +37,10 @@ public class cmd implements CommandExecutor {
 
             boolean discord = config.getBoolean("discord.enable");
             if(discord){
+                plugin.reloadConfig();
                 String channelid = config.getString("discord.channel");
                 TextChannel channel = DiscordUtil.getTextChannelById(channelid);
-                if(config.getBoolean("discord.embed")){
+                if(config.getBoolean("discord.embed.enable")){
                     EmbedBuilder embed = new EmbedBuilder();
                     String title = config.getString("message.title");
                     DateTimeFormatter dtf = DateTimeFormatter.ofPattern("h:mm:ss a");
@@ -47,7 +49,8 @@ public class cmd implements CommandExecutor {
                     embed.setDescription(msg);
                     String sendby = config.getString("message.sendby");
                     embed.setFooter(sendby+" "+sender.getName()+" | "+dtf.format(time));
-                    embed.setColor(new Color(255,0,0));
+                    Color color = Color.decode(Objects.requireNonNull(config.getString("discord.embed.color")));
+                    embed.setColor(color);
                     channel.sendMessage(embed.build()).queue();
                 }else{
                     DiscordUtil.sendMessage(channel, msg);
