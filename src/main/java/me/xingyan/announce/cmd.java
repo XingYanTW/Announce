@@ -3,6 +3,7 @@ package me.xingyan.announce;
 import github.scarsz.discordsrv.dependencies.jda.api.EmbedBuilder;
 import github.scarsz.discordsrv.dependencies.jda.api.entities.TextChannel;
 import github.scarsz.discordsrv.util.DiscordUtil;
+import me.clip.placeholderapi.PlaceholderAPI;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
@@ -33,8 +34,8 @@ public class cmd implements CommandExecutor {
             config.options().copyDefaults(true);
             plugin.saveConfig();
             String prefix = config.getString("message.prefix");
+            msg = PlaceholderAPI.setPlaceholders(sender.getServer().getPlayer(sender.getName()), msg);
             Bukkit.broadcastMessage(ChatColor.translateAlternateColorCodes('&', prefix + " " + msg));
-
             boolean discord = config.getBoolean("discord.enable");
             if(discord){
                 plugin.reloadConfig();
