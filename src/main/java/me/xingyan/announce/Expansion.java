@@ -81,7 +81,7 @@ public class Expansion extends PlaceholderExpansion {
     @Override
     public String onRequest(OfflinePlayer player, String identifier){
 
-        // %example_placeholder1%
+        // %announce_last%
         if(identifier.equals("last")){
             plugin.reloadConfig();
             return config.getString("announce");
